@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Enquête Vizit Demenagement</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form id="quizForm" action="http://localhost:3000/submit-form" method="POST">
+        <h1 id="header">Enquête sur nos services <br> Visit Demenagement</h1>
+        <h3>Sur une échelle de 1 (Mauvais) à 5 (Parfait)</h3><br>
+        <label for="q1"><b>Question 1</b> : <br>
+            Étiez-vous satisfait du processus de planification de votre déménagement?
+        </label><br>
+        <div class="slider-container">
+            <input type="range" id="q1" name="q1" min="1" max="5" step="1" value="3"
+                oninput="updateValue('q1Value', this.value)" required>
+            <span id="q1Value">3</span>
+        </div>
+
+
+        <label for="q2"><b>Question 2</b> : <br>
+            À quel point notre personnel était-il courtois et professionnel pendant toute la durée du service ?
+        </label><br>
+        <div class="slider-container">
+            <input type="range" id="q2" name="q2" min="1" max="5" step="1" value="3"
+                oninput="updateValue('q2Value', this.value)" required>
+            <span id="q2Value">3</span>
+        </div>
+
+
+        <label for="q3"><b>Question 3</b> : <br>
+            À quel point avez-vous trouvé que notre équipe a pris des précautions spécifiques pour protéger et manipuler
+            vos biens fragiles pendant le processus de déménagement ?
+        </label><br>
+        <div class="slider-container">
+            <input type="range" id="q3" name="q3" min="1" max="5" step="1" value="3"
+                oninput="updateValue('q3Value', this.value)" required>
+            <span id="q3Value">3</span>
+        </div>
+
+        <label for="q4"><b>Question 4</b> : <br>
+            Comment évalueriez-vous la communication avec notre entreprise, y compris la clarté des informations
+            fournies avant et pendant le déménagement ?
+        </label> <br>
+        <div class="slider-container">
+            <input type="range" id="q4" name="q4" min="1" max="5" step="1" value="3"
+                oninput="updateValue('q4Value', this.value)" required>
+            <span id="q4Value">3</span>
+        </div>
+
+        <label for="q5"><b>Question 5</b> : <br>
+            Dans l'ensemble, à quel point êtes-vous satisfait(e) de la qualité globale des services de déménagement que
+            vous avez reçus de notre part ?
+        </label>
+        <br>
+        <div class="slider-container">
+            <input type="range" id="q5" name="q5" min="1" max="5" step="1" value="3"
+                oninput="updateValue('q5Value', this.value)" required>
+            <span id="q5Value">3</span>
+        </div>
+
+
+        <input type="submit" value="Soumettre">
+    </form>
+    <div id="goodModal" class="goodModal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <h3>Nous vous remercions de votre collaboration</h3>
+            <p>Nous serions ravis que vous nous donniez votre avis sur la page qui s'ouvre maintenant.</p>
+        </div>
+
+    </div>
+
+    <div id="badModal" class="badModal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <p>
+            <h4>Nous vous remercions sincèrement de votre coopération.</h4> <br>
+            nous avons pris en considération votre avis et l'avons communiqué à notre équipe technique.</p>
+        </div>
+
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
