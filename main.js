@@ -21,9 +21,9 @@ document.getElementById('quizForm').addEventListener('submit', function (event) 
 
   const average = (q1 + q2 + q3 + q4 + q5) / 5;
 
-  if (average >= 3.5) {
+  if (average >= 3.8) {
     setTimeout(() => {
-      window.location.href = 'https://fr.trustpilot.com/evaluate/nosdemenageurs.fr';
+      window.location.href = 'https://g.page/r/CUYyppp-uWVjEAI/review';
     }, 4000);
     document.getElementById('quizForm').reset();
     goodModal.style.display = "block";
