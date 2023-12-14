@@ -68,7 +68,7 @@ input[type="submit"] {
   border-radius: 8px;
   border: 1px solid #ccc;
   transition: border-color 0.3s, box-shadow 0.3s;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 input[type="submit"] {
