@@ -24,7 +24,7 @@ document.getElementById('quizForm').addEventListener('submit', function (event) 
   if (average >= 3.8) {
     setTimeout(() => {
       window.location.href = 'https://g.page/r/CUYyppp-uWVjEAI/review';
-    }, 4000);
+    }, 2500);
     document.getElementById('quizForm').reset();
     goodModal.style.display = "block";
   } else {
@@ -34,7 +34,7 @@ document.getElementById('quizForm').addEventListener('submit', function (event) 
       setTimeout(() => {
         window.close()
       }, 1000)
-    }, 4000);
+    }, 3000);
     document.getElementById('quizForm').reset();
     badModal.style.display = "block";
   }
