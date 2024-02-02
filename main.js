@@ -19,12 +19,14 @@ const ratings = document.querySelectorAll('.rating');
     });
   }
 
-  function submitQuiz() {
+  document.getElementById('quizForm').addEventListener('submit', function (event) {
+    event.preventDefault();
     const values = Array.from(ratings).map(rating => {
       const stars = rating.querySelectorAll('.star');
       return Array.from(stars).filter(star => star.classList.contains('active')).length;
     });
-  
+  });
+
     const average = values.reduce((acc, val) => acc + val, 0) / values.length;
   
     var badModal = document.getElementById("badModal");
@@ -44,5 +46,5 @@ const ratings = document.querySelectorAll('.rating');
       }, 3000);
       badModal.style.display = "block";
     }
-  }
+ 
   
