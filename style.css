@@ -1,4 +1,82 @@
-/* Modal styles - check if needed */
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Quiz Container Styles */
+#quiz-container {
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Question Styles */
+.question {
+  margin-bottom: 20px;
+}
+
+/* Rating Styles */
+.rating {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.star {
+  font-size: 30px;
+  cursor: pointer;
+  color: #ccc;
+  margin: 5px;
+}
+
+.star:hover,
+.star.active {
+  color: #fdd835; /* Yellow */
+}
+
+/* Result Styles */
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Submit Button Styles */
+input[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #3045ae;
+  color: white;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0e1e6e;
+}
+
+/* Modal Styles - check if needed */
 .badModal,
 .goodModal {
   display: none;
@@ -17,103 +95,24 @@
   text-align: center;
 }
 
-/* Modal Content styles - check if needed */
+/* Modal Content Styles - check if needed */
 .modal-content {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 50%;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f5f5;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  font-size: 20px;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-form {
-  width: 90%;
-  height: 100%;
-  margin: auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.question {
-  margin-bottom: 20px;
-}
-
-.rating {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-.star {
-  position: relative;
-  font-size: 5vw; /* Adjust font size based on viewport width */
-  cursor: pointer;
-  color: #ccc;
-  margin: 1vw auto; /* Adjust margin based on viewport width */
-}
-
-.star:hover,
-.star.active {
-  color: #fdd835; /* Yellow */
-}
-
-#result {
-  margin-top: 20px;
-  font-weight: bold;
-}
-
-input[type="submit"] {
-  width: 100%;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  font-size: 4vw; /* Adjust font size based on viewport width */
-  background-color: #3045ae;
-  color: white;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background-color: #0e1e6e;
+  width: 70%;
 }
 
 /* Media Queries for responsiveness */
 @media only screen and (max-width: 600px) {
-  .modal-content {
-    width: 80%; /* Adjust width for small screens */
-  }
-
   .star {
-    font-size: 10vw; /* Adjust font size for small screens */
-    margin: 2vw auto; /* Adjust margin for small screens */
+    font-size: 20px;
   }
 
   input[type="submit"] {
-    font-size: 6vw; /* Adjust font size for small screens */
+    font-size: 14px;
   }
+
+  /* Adjust other styles as needed for smaller screens */
 }
