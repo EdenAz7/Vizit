@@ -25,7 +25,7 @@ document.getElementById('quiz-container').addEventListener('submit', function (e
     const stars = rating.querySelectorAll('.star');
     const activeStars = Array.from(stars).filter(star => star.classList.contains('active')).length;
     if (activeStars === 0) {
-      alert('Please rate all questions before submitting.');
+      alert('Veuillez évaluer toutes les questions avant de soumettre.');
       throw new Error('Unrated question found');
     }
     return activeStars;
