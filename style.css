@@ -1,38 +1,3 @@
-
-/* Modal styles - check if needed */
-.badModal,
-.goodModal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 25%;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-  margin: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-/* Modal Content styles - check if needed */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%;
-}
-/* Resetting default styles for some elements */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f5f5;
@@ -44,13 +9,13 @@ body {
   font-size: 30px;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-form {
+#quiz-container {
   width: 90%;
   height: 100%;
   margin: auto;
@@ -60,7 +25,38 @@ form {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-input[type="number"],
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.rating {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.star {
+  font-size: 80px;
+  cursor: pointer;
+  color: #ccc;
+  margin: 20px;
+}
+
+.star:hover,
+.star.active {
+  color: #fdd835; /* Yellow */
+}
+
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
 input[type="submit"] {
   width: 100%;
   padding: 20px;
@@ -69,9 +65,6 @@ input[type="submit"] {
   border: 1px solid #ccc;
   transition: border-color 0.3s, box-shadow 0.3s;
   font-size: 25px;
-}
-
-input[type="submit"] {
   background-color: #3045ae;
   color: white;
   cursor: pointer;
@@ -81,48 +74,31 @@ input[type="submit"]:hover {
   background-color: #0e1e6e;
 }
 
-.slider-container {
-  position: relative;
-  width: 100%;
-  margin: 20px auto;
+/* Modal styles - check if needed */
+.badModal,
+.goodModal {
+display: none;
+position: fixed;
+z-index: 1;
+padding-top: 25%;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0, 0, 0, 0.4);
+margin: auto;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+text-align: center;
 }
 
-input[type="range"] {
-  width: 100%;
-  height: 25px;
-  -webkit-appearance: none;
-  appearance: none;
-  background: #ddd;
-  outline: none;
-  border-radius: 8px;
-  margin: 5px 0;
+/* Modal Content styles - check if needed */
+.modal-content {
+background-color: #fefefe;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 50%;
 }
 
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background: #3045ae;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-input[type="range"]::-webkit-slider-thumb:hover {
-  background: #0e1e6e;
-}
-
-/* Display selected values */
-#q1Value,
-#q2Value,
-#q3Value,
-#q4Value,
-#q5Value {
-  display: block;
-  text-align: center;
-  margin-top: 10px;
-  font-weight: bold;
-  color: #3045ae;
-  font-size: 20px;
-}
