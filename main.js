@@ -24,25 +24,27 @@ const ratings = document.querySelectorAll('.rating');
       const stars = rating.querySelectorAll('.star');
       return Array.from(stars).filter(star => star.classList.contains('active')).length;
     });
-
+  
     const average = values.reduce((acc, val) => acc + val, 0) / values.length;
-    
-    var badModal = document.getElementsByClassName("badModal");
-    var goodModal = document.getElementsByClassName("goodModal");
+  
+    var badModal = document.getElementById("badModal");
+    var goodModal = document.getElementById("goodModal");
+  
     if (average >= 3.8) {
-        setTimeout(() => {
-            window.location.href = 'https://fr.trustpilot.com/evaluate/vizit-demenagement.fr';
-          }, 2000);
-          document.getElementById('quizForm').reset();
-          goodModal.style.display = "block";
+      setTimeout(() => {
+        window.location.href = 'https://fr.trustpilot.com/evaluate/vizit-demenagement.fr';
+      }, 2000);
+      document.getElementById('quiz-container').reset();
+      goodModal.style.display = "block";
     } else {
+      setTimeout(() => {
+        document.body.innerHTML = '';
         setTimeout(() => {
-            document.body.innerHTML = '';
-            setTimeout(() => {
-              window.close()
-            }, 1000)
-          }, 3000);
-          document.getElementById('quizForm').reset();
-          badModal.style.display = "block";
+          window.close();
+        }, 1000);
+      }, 3000);
+      document.getElementById('quiz-container').reset();
+      badModal.style.display = "block";
     }
   }
+  
