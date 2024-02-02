@@ -23,7 +23,12 @@ document.getElementById('quiz-container').addEventListener('submit', function (e
   event.preventDefault();
   const values = Array.from(ratings).map(rating => {
     const stars = rating.querySelectorAll('.star');
-    return Array.from(stars).filter(star => star.classList.contains('active')).length;
+    const activeStars = Array.from(stars).filter(star => star.classList.contains('active')).length;
+    if (activeStars === 0) {
+      alert('Please rate all questions before submitting.');
+      throw new Error('Unrated question found');
+    }
+    return activeStars;
   });
 
   const average = values.reduce((acc, val) => acc + val, 0) / values.length;
