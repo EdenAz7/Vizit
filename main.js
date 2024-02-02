@@ -34,7 +34,6 @@ const ratings = document.querySelectorAll('.rating');
       setTimeout(() => {
         window.location.href = 'https://fr.trustpilot.com/evaluate/vizit-demenagement.fr';
       }, 2000);
-      document.getElementById('quiz-container').reset();
       goodModal.style.display = "block";
     } else {
       setTimeout(() => {
@@ -43,7 +42,6 @@ const ratings = document.querySelectorAll('.rating');
           window.close();
         }, 1000);
       }, 3000);
-      document.getElementById('quiz-container').reset();
       badModal.style.display = "block";
     }
   }
