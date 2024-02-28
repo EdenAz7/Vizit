@@ -19,12 +19,8 @@ function rateQuestion(rating, value) {
   });
 }
 
-const customerDetails = JSON.parse(localStorage.getItem('customerDetails')) || [];
-
 document.getElementById('quiz-container').addEventListener('submit', function (event) {
   event.preventDefault();
-  
-  const fullName = document.getElementById('fullName').value;
   const values = Array.from(ratings).map(rating => {
     const stars = rating.querySelectorAll('.star');
     const activeStars = Array.from(stars).filter(star => star.classList.contains('active')).length;
@@ -37,15 +33,7 @@ document.getElementById('quiz-container').addEventListener('submit', function (e
 
   const average = values.reduce((acc, val) => acc + val, 0) / values.length;
 
-  const currentDate = new Date().toLocaleString();
-  customerDetails.push({
-    fullName,
-    ratings: values,
-    averageRating: average.toFixed(2),
-    submissionTime: currentDate, // Add submission time to customer details
-  });
-  
-  localStorage.setItem('customerDetails', JSON.stringify(customerDetails));
+
 
   if (average >= 3.8) {
     setTimeout(() => {
@@ -65,16 +53,3 @@ document.getElementById('quiz-container').addEventListener('submit', function (e
 function updateValue(spanId, value) {
   document.getElementById(spanId).textContent = value;
 }
-
-document.getElementById('loginButton').addEventListener('click', function () {
-  const username = prompt('Enter your username:');
-  const password = prompt('Enter your password:');
-
-  // Check username and password
-  if (username === 'edenaz' && password === '318764446') {
-    // Redirect to admin page and display customer details
-    window.location.href = 'admin-page.html';
-  } else {
-    alert('Invalid credentials. Please try again.');
-  }
-});
