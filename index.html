@@ -1,74 +1,209 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="LOGO-VIZIT.png" type="image/x-icon" style="border-radius: 100%;">
-  <title>Enquête Vizit demenagement</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <form id="quiz-container" action="http://localhost:3000/submit-form" method="POST">
 
-    <h1 id="header">Enquête sur nos services <br> <img src="LOGO-VIZIT.png" alt="" width="200px"> </h1>
-    <h3>Sur une échelle de 1 (Mauvais) à 5 (Parfait)</h3><br>
-    <div class="question">
-      <p>1. Étiez-vous satisfait du processus de planification de votre déménagement?</p>
-      <div class="rating" data-question="1"></div>
-    </div>
+    <form id="form" class="container m-4 pl-4" method="POST">
+        <h1 id="header">Enquête sur nos services <br> <img src="LOGO-VIZIT.png" alt=""
+                width="200px"></h1>
+        <h3>Sur une échelle de 1 (Mauvais) à 5 (Parfait)</h3><br>
+        <div id="message" style="
+        display: none;
+        margin: 20px;
+        font-weight: bold;
+        color: green;
+        padding: 8px;
+        background-color: beige;
+        border-radius: 4px;
+        border-color: aquamarine;
+      "></div>
+        <div class="field">
+            <label class="label">Nom Complet</label>
+            <div class="control">
+                <input class="input" type="" placeholder="Votre nom complet" name="Nom" required />
+            </div>
+        </div>
 
-    <div class="question">
-      <p>2. À quel point notre personnel était-il courtois et professionnel pendant toute la durée du service ?</p>
-      <div class="rating" data-question="2"></div>
-    </div>
+        <div class="field">
+            <p>1. Étiez-vous satisfait du processus de planification de votre déménagement?</p>
+            <select name="question1" required>
+                <option value="" selected disabled hidden>****</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+        <div class="field">
+            <p>2. À quel point notre personnel était-il courtois et professionnel pendant toute la durée du service ?
+            </p>
+            <select name="question2" required>
+                <option value="" selected disabled hidden>****</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+        <div class="field">
+            <p>3. À quel point avez-vous trouvé que notre équipe a pris des précautions spécifiques pour protéger et
+                manipuler
+                vos biens fragiles pendant le processus de déménagement ?</p>
+            <select name="question3" required>
+                <option value="" selected disabled hidden>****</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+        <div class="field">
+            <p>4. Comment évalueriez-vous la communication avec notre entreprise, y compris la clarté des informations
+                fournies avant et pendant le déménagement ?</p>
+            <select name="question4" required>
+                <option value="" selected disabled hidden>****</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+        <div class="field">
+            <p>5. Dans l'ensemble, à quel point êtes-vous satisfait(e) de la qualité globale des services de
+                déménagement que
+                vous avez reçus de notre part ?</p>
+            <select name="question5" required>
+                <option value="" selected disabled hidden>****</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+            </select>
+        </div>
 
-    <div class="question">
-      <p>3. À quel point avez-vous trouvé que notre équipe a pris des précautions spécifiques pour protéger et manipuler
-        vos biens fragiles pendant le processus de déménagement ?</p>
-      <div class="rating" data-question="3"></div>
-    </div>
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-primary" type="submit" id="submit-button">
+                    Page Suivant
+                </button>
+            </div>
+        </div>
 
-    <div class="question">
-      <p>4. Comment évalueriez-vous la communication avec notre entreprise, y compris la clarté des informations
-        fournies avant et pendant le déménagement ?</p>
-      <div class="rating" data-question="4"></div>
-    </div>
+        <div id="goodModal" class="goodModal">
 
-    <div class="question">
-      <p>5. Dans l'ensemble, à quel point êtes-vous satisfait(e) de la qualité globale des services de déménagement que
-        vous avez reçus de notre part ?</p>
-      <div class="rating" data-question="5"></div>
-    </div>
+            <!-- Modal content -->
+            <div class="modal-content">
+                <h3>Encore une seconde!</h3>
+                <p>Une page va s'ouvrir pour laisser un avis</p>
+                <p>Merci</p>
+            </div>
 
-    <input type="submit" value="Page suivante">
-  </form>
+        </div>
+
+        <div id="badModal" class="badModal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <p>
+                <h4>Nous vous remercions sincèrement de votre coopération.</h4> <br>
+                nous avons pris en considération votre avis et l'avons communiqué à notre équipe technique.</p>
+            </div>
+
+        </div>
+    </form>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            document.getElementById("message").textContent = "Un Instant..";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("submit-button").disabled = true;
+
+            // Collect the form data
+            var formData = new FormData(this);
+            var sum = 0;
+            var count = 0;
+            for (var pair of formData.entries()) {
+                if (!isNaN(pair[1])) { // Check if the value is a number
+                    sum += parseInt(pair[1]); // Add the value to the sum
+                    count++; // Increment count to calculate the number of questions answered
+                }
+            }
+
+            // Calculate the average
+            var average = sum / count;
+            var formDataString = new URLSearchParams(formData).toString();
+
+            // Send a POST request to your Google Apps Script
+            fetch(
+                "https://script.google.com/macros/s/AKfycbxGrMhujRNr_KWPdhsJ7tURrTuVOWmaY2-fzuI0dza3gbRydepxKtpUYx88i09_7Cwm/exec",
+                {
+                    redirect: "follow",
+                    method: "POST",
+                    body: formDataString,
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                }
+            )
+                .then(function (response) {
+                    // Check if the request was successful
+                    if (response.ok) {
+                        return response; // Assuming your script returns JSON response
+                    } else {
+                        throw new Error("Failed to submit the form.");
+                    }
+                })
+                .then(function (data) {
+                    // Display a success message
+                    document.getElementById("message").textContent =
+                        "Un Instant";
+                    document.getElementById("message").style.backgroundColor = "green";
+                    document.getElementById("message").style.color = "beige";
+
+                    // Check the average and redirect accordingly
+                    if (average >= 3.8) {
+                        setTimeout(() => {
+                            window.location.href = 'https://fr.trustpilot.com/evaluate/vizit-demenagement.fr';
+                        }, 2000);
+                        document.getElementById("goodModal").style.display = "block";
+                    } else {
+                        setTimeout(() => {
+                            document.body.innerHTML = '';
+                            setTimeout(() => {
+                                window.close();
+                            }, 1000);
+                        }, 3000);
+                        document.getElementById("badModal").style.display = "block";
+                    }
 
 
-  <div id="goodModal" class="goodModal">
+                    document.getElementById("message").textContent = "";
+                    document.getElementById("message").style.display = "none";
+                    document.getElementById("submit-button").disabled = false;
+                    document.getElementById("form").reset();
 
-    <!-- Modal content -->
-    <div class="modal-content">
-      <h3>Encore une seconde!</h3>
-      <p>Une page va s'ouvrir pour laisser un avis</p>
-      <p>Merci</p>
+                })
+                .catch(function (error) {
+                    // Handle errors, you can display an error message here
+                    console.error(error);
+                    document.getElementById("message").textContent =
+                        "An error occurred while submitting the form.";
+                    document.getElementById("message").style.display = "block";
+                });
+        });
+    </script>
 
-    </div>
-
-  </div>
-
-  <div id="badModal" class="badModal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <p>
-      <h4>Nous vous remercions sincèrement de votre coopération.</h4> <br>
-      nous avons pris en considération votre avis et l'avons communiqué à notre équipe technique.</p>
-    </div>
-
-  </div>
 </body>
-<script src="main.js"></script>
 
 </html>

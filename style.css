@@ -17,7 +17,7 @@ body {
 }
 
 /* Quiz Container Styles */
-#quiz-container {
+#form {
   width: 90%;
   max-width: 600px;
   margin: auto;
@@ -33,28 +33,10 @@ h1 {
 }
 
 /* Question Styles */
-.question {
+.field {
   margin-bottom: 20px;
 }
 
-/* Rating Styles */
-.rating {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.star {
-  font-size: 30px;
-  cursor: pointer;
-  color: #ccc;
-  margin: 5px;
-}
-
-.star:hover,
-.star.active {
-  color: #fdd835; /* Yellow */
-}
 
 /* Result Styles */
 #result {
@@ -63,17 +45,17 @@ h1 {
 }
 
 /* Submit Button Styles */
-input[type="submit"] {
+#submit-button {
   width: 100%;
   padding: 15px;
   border-radius: 8px;
-  background-color: #3045ae;
+  background-color: #65c960;
   color: white;
   cursor: pointer;
 }
 
 input[type="submit"]:hover {
-  background-color: #0e1e6e;
+  background-color: #1d7f36;
 }
 
 /* Modal Styles - check if needed */
@@ -101,7 +83,7 @@ input[type="submit"]:hover {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width:50%;
+  width: 50%;
 }
 
 /* Media Queries for responsiveness */
